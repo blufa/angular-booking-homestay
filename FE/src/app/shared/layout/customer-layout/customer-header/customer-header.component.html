@@ -1,0 +1,30 @@
+<div class="header-container box-shadow-bh">
+    <div class="logo-wrapper" routerLink="/home">
+        <img src="assets/logo/logo.png" alt="">
+    </div>
+    <div class="d-flex-bh flex-row-reverse-bh align-items-center-bh">
+        <div class="button-group d-flex-bh">
+          <ng-container *ngIf="(user$ | async) as user; else noneLogin">
+              <div class="login-success">
+                <div class="avatar">H</div>
+                <span style="margin-right: 10px">{{user.fullName}}</span>
+                <span class="logout" (click)="logout()">Đăng xuất</span>
+              </div>
+          </ng-container>
+         <ng-template #noneLogin>
+          <div class="wrap-fit">
+            <button class="primary-bg--hover" mat-button color="primary" (click)="openLoginFormDialog()">Đăng nhập</button>
+        </div>
+        <div class="wrap-fit">
+            <button mat-stroked-button color="primary" routerLink="/auth/register">Tạo tài khoản</button>
+        </div>
+         </ng-template>
+        </div>
+        <a class="cart-wrapper " routerLink="/cart">
+            <app-cart-svg></app-cart-svg>
+        </a>
+        <div class="lease-wrapper">
+            <button mat-stroked-button color="accent" class="btn btn-l">Đăng ký cho thuê</button>
+        </div>
+    </div>
+</div>

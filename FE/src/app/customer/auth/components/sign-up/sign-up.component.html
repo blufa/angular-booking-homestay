@@ -1,0 +1,136 @@
+<!-- {{signUpFG.errors | json }} -->
+<div class="register-container">
+  <div class="row align-items-center ">
+    <div class="form-block mx-auto">
+      <div class="register-form">
+        <div class="form-group first">
+          <p class="register">Đăng Ký</p>
+        </div>
+        <div class="form-group-second">
+          <div class="mat-tab-example">
+
+            <form class="example-form" [formGroup]="signUpFG">
+              <div class="name-ex">
+                <span class="name-first">Tên</span>
+                <input type="email" class="form-control" placeholder="Tên" id="name" formControlName="fullName">
+              </div>
+              <div class="surname-ex">
+                <span class="surname-first">Số điện thoại</span>
+                <input type="text" class="form-control" placeholder="Số điện thoại" id="surname" formControlName="phone">
+              </div>
+              <div class="email-ex">
+                <span class="email-first">Email</span>
+                <input type="email" class="form-control" placeholder="Email" id="email" formControlName="username">
+              </div>
+              <span class="password-first">Mật khẩu</span>
+              <input type="password" class="form-control" placeholder="Mật khẩu" id="password" formControlName="password">
+              <span class="check-password">Xác nhận mật khẩu</span>
+              <input type="password" class="form-control" placeholder="Xác nhận mật khẩu" id="checkpassword" formControlName="confirmPassword">
+              <mat-error
+                        *ngIf="confirmPasswordControl!.hasError('invalidPassword')">
+                        Mật khẩu phải chứa ít nhất <strong>một chữ hoa, số, kí
+                            tự đặc biệt</strong>
+                    </mat-error>
+                    <mat-error
+                        *ngIf="confirmPasswordControl!.hasError('notMatch') &&
+                        !confirmPasswordControl!.hasError('required') &&
+                        !confirmPasswordControl!.hasError('invalidPassword')">
+                        Mật khẩu không trùng khớp
+                    </mat-error>
+                    <mat-error
+                        *ngIf="confirmPasswordControl!.hasError('required')">
+                        Mật khẩu <strong>không được để trống</strong>
+                    </mat-error>
+
+              <div class="checkbox-layout" style="width: 410px">
+                <label class="mat-checkbox-layout">
+                  <mat-checkbox id="mat-checkbox-a-input">
+                    <label class="mat-checkbox-layout" for="mat-checkbox-a-input-input"
+                      style="color: rgb(143, 143, 246);">
+                      <span class="mat-checkbox-inner-container" style="display: none;"><input type="checkbox"
+                          class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-a-input-input" tabindex="0"
+                          aria-checked="false">
+                        <span class="mat-checkbox-frame">
+                        </span>
+                        <span class="mat-checkbox-background">
+                          <svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve"
+                            aria-hidden="true" class="mat-checkbox-checkmark">
+                            <path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3"
+                              class="mat-checkbox-checkmark-path">
+                            </path>
+                          </svg>
+                          <span class="mat-checkbox-mixedmark">
+                          </span>
+                        </span>
+                      </span>
+                      <span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span> Nhận email khuyến mãi
+                        độc quyền từ Spring Hotel. Tôi có thể bỏ đăng ký này về
+                        sau như đã nêu trong chính sách bảo mật
+                      </span>
+                    </label>
+                  </mat-checkbox>
+                </label>
+              </div>
+              <div>
+                <button class="register"
+                (click)="onClickSignUp(signUpFG.value)"
+                [disabled]="signUpFG.invalid">
+                <span></span>
+                Đăng Ký</button>
+              </div>
+              <div class="divider d-flex align-items-center my-4">
+                <p id="continue-or" class="text-center mx-3 mb-0 text-muted">hoặc tiếp tục với</p>
+              </div>
+              <div id="gird2">
+                <div class="button-google">
+                  <div class="icon-google">
+                    <img src="https://cdn6.agoda.net/images/universal-login/google-logo-v2.svg" alt="">
+                  </div>
+                  <div class="btn-gg">
+                    <a href="#!" role="button" id="text-gg">
+                      Google
+                    </a>
+                  </div>
+                </div>
+                <div class="gird3">
+                  <div class="button-facebook">
+                    <div class="icon-facebook">
+                      <img src="https://cdn6.agoda.net/images/universal-login/facebook-logo.svg" alt="">
+                    </div>
+                    <div class="btn-fb">
+                      <a href="#!" role="button" id="text-fb">
+                        Facebook
+                      </a>
+                    </div>
+                  </div>
+                  <div class="button-apple">
+                    <div class="icon-apple">
+                      <img src="https://cdn6.agoda.net/images/universal-login/apple-logo.svg" alt="">
+                    </div>
+                    <div class="btn-ap">
+                      <a href="#!" role="button" id="text-ap">
+                        Apple
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="login-resume">
+                <button  class="register" (click)="openSignInDialog()">Bạn đã có tài khoản? Đăng nhập</button>
+              </div>
+              <div class="gird4">
+                <span>
+                  <span class="mb-5 pb-lg-2">Khi đăng nhập, tôi đồng ý với các </span>
+                  <a href="#!"> Điều khoản sử dụng </a>
+                  <span class="mb-5 pb-lg-2">và</span>
+                  <a href="#!"> Chính sách bảo mật </a>
+                  <span class="spring-hotel"> của Spring Hotel </span>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
